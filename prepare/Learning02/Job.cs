@@ -1,11 +1,11 @@
     public class Job
     {
-        public string _company;
-        public string _jobTitle;
-        public int _startYear;
-        public int _endYear;
+        public string Company;
+        public string JobTitle;
+        public int StartYear;
+        public int EndYear;
         public void Display()
         {
-            Console.WriteLine($"{_jobTitle} ({_company}) {_startYear}-{_endYear}");
+            Console.WriteLine($"{JobTitle} ({Company}) {StartYear}-{EndYear}");
         }
     }

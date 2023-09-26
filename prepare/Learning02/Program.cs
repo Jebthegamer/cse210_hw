@@ -5,19 +5,19 @@ class Program
     static void Main(string[] args)
     {
         Job job1 = new Job();
-        job1._jobTitle = "Janitor";
-        job1._company = "Time Travel Inc.";
-        job1._endYear = 2050;
-        job1._startYear = 2060;
+        job1.JobTitle = "Janitor";
+        job1.Company = "Time Travel Inc.";
+        job1.EndYear = 2050;
+        job1.StartYear = 2060;
         Job job2 = new Job();
-        job2._jobTitle = "Cabbage merchant";
-        job2._company = "Independently Run";
-        job2._startYear = 2020;
-        job2._endYear = 2020;
+        job2.JobTitle = "Cabbage merchant";
+        job2.Company = "Independently Run";
+        job2.StartYear = 2020;
+        job2.EndYear = 2020;
         Resume myResume = new Resume();
-        myResume._name = "Jacob Buffington";
-        myResume._jobs.Add(job1);
-        myResume._jobs.Add(job2);
+        myResume.Name = "Jacob Buffington";
+        myResume.Jobs.Add(job1);
+        myResume.Jobs.Add(job2);
         myResume.DisplayResume();
     }
 }
