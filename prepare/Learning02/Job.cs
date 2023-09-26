@@ -8,4 +8,6 @@
         {
             Console.WriteLine($"{JobTitle} ({Company}) {StartYear}-{EndYear}");
         }
+       // public int MyProperty { get; set; }
+       // Obtained by typing "prop" then hitting tab
     }
