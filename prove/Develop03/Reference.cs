@@ -1,8 +1,8 @@
 public class Reference
 {
-    private string _book;
-    private int _chapterNumber;
-    private int _verseNumber; 
+    private string _book { get; set; }
+    private int _chapterNumber { get; set; }
+    private int _verseNumber { get; set; }
 
     public void SetBook(string i)
     {

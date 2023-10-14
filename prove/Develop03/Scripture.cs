@@ -1,7 +1,7 @@
 public class Scripture
 {
-    private List<Verse> verses;
-    private Reference reference;
+    private List<Verse> verses { get; set; }
+    private Reference reference { get; set; }
 
     public void SetVerse(Verse verse)
     {
