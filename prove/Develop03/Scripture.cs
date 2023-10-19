@@ -1,10 +1,14 @@
 public class Scripture
 {
-    private List<Verse> verses { get; set; }
-    private Reference reference { get; set; }
+    private List<Word> _verses { get; set; }
+    private Reference _reference { get; set; }
 
-    public void SetVerse(Verse verse)
+    public void SetVerse(Word verse)
     {
-        verses.Add(verse);
+        _verses.Add(verse);
+    }
+    public void SetReference()
+    {
+        Console.WriteLine("");
     }
 }

@@ -1,19 +1,15 @@
 public class Reference
 {
-    private string _book { get; set; }
-    private int _chapterNumber { get; set; }
-    private int _verseNumber { get; set; }
+    private string _reference { get; set; }
+   
+    public string GetReference()
+    {
+        return _reference;
+    }
 
-    public void SetBook(string i)
+    public Reference(string reference)
     {
-        _book = i;
-    }
-    public void SetChapterNumber(int i)
-    {
-        _chapterNumber = i;
-    }
-    public void SetVerseNumber(int i)
-    {
-        _verseNumber = i;
+        _reference = reference;
     }
 }
+// Console.WriteLine(${reference.GetReference()});
