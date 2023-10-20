@@ -7,13 +7,33 @@ public class Word
     {
         _hidden = hidden;
     }
+    public bool GetHiddenStatus()
+    {
+        return _hidden;
+    }
     public void SetWord(string verse)
     {
         _word = verse;
     }
     public string GetWord()
-    {   
-        return _word;
+    {
+        if (_hidden)
+        {
+            string word = "";
+            char[] chars = _word.ToCharArray();
+            int length = chars.Length;
+            int i = 0;
+            while (i < length)
+            {
+                word += "_";
+                i++;
+            }
+            return word;
+        } 
+        else
+        {
+            return _word;
+        }  
     }
     public Word(string word)
     {
