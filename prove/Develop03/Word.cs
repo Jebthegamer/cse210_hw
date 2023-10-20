@@ -11,4 +11,13 @@ public class Word
     {
         _word = verse;
     }
+    public string GetWord()
+    {   
+        return _word;
+    }
+    public Word(string word)
+    {
+        _word = word;
+        _hidden = false;
+    }
 }

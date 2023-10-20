@@ -1,31 +1,23 @@
 using System;
-
+using System.Diagnostics.Contracts;
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop03 World!");
-    }
-    public List<Scripture> ReadFile(string fileName)
-    {
-        Scripture scripture = new Scripture();
-        scriptureList = List<scripture>;
-        string[] lines = File.ReadAllLines(fileName);
-        int count = 0;
-        foreach (string line in lines)
+        Scripture initializer = new Scripture();
+        string fileName = "Scriptures.txt";
+        List<Scripture> scriptures = initializer.ReadFile(fileName);
+        foreach (Scripture scripture in scriptures)
         {
-            if (count = 0)
+            Reference reference = scripture.GetReference();
+            Console.WriteLine($"{reference}");
+            List<Word> verseWords = scripture.GetVerse();
+            foreach (Word verse in verseWords)
             {
-                Scripture scripture = new Scripture();
-                scripture.
+                string word = verse.GetWord();
+                Console.WriteLine($"{word}");
             }
+            
         }
-        // Every other line...
-            // line = _reference
-            // line = _verse
-                // _verse = foreach (word in line) 
-                    //_verse.Add(word);
-        // List<Scripture>.Add(scripture{_reference, _verse});
-        //return ScriptureList;
     }
 }
