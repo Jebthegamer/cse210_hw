@@ -32,12 +32,14 @@ class Program
             
             Console.WriteLine("Press enter to continue or type 'quit' to finish:");
             string input = Console.ReadLine();
+            // If the user quits, end the program.
             if (input == "quit")
             {
                 remain = false;
             }
             else
             {
+                // Otherwise, hide words. If all words are hidden, end the program.
                 remain = scriptures[index].HideWords();
             }
         }
