@@ -6,35 +6,9 @@ class Program
 
     static void Main(string[] args)
     {
-        // Initialize variables
-        
-        
-        /* Start loop
-            Display the menu
-            Ask which option the user should do
-                1: Write an entry
-                    1A: Display the prompt
-                    1B: Ask for user input
-                        1AA: Store the date, prompt, and response in an entry
-                2:  Display the entries
-                    2A: Retrieve the journal's entry list
-                    2B: Print the list, including the prompt, date, and response.
-                        2AA: For loop, going through the entries in the entry list contained in Journal class
-                3: Load
-                    3A: Read a file
-                        3AA: Read each line, store as entries. Every other line will be a date/prompt then an entry
-                        3AB: While loop; or for lines in file store one line as the first part of an entry; then the next line as
-                            another part of the entry.
-                4: Save file
-                    4A: Print entries from journal onto the file
-                5: Quit
-                    5A: End while loop; close files (if needed), end program.
-                6: Create new prompt.
-        */
-
         // Initialize journals and the continue loop.
         Journal journal = new Journal();
-        Journal old_entries = new Journal();
+        Journal oldEntries = new Journal();
         bool continueLoop = true;
         while (continueLoop)
         {
@@ -72,19 +46,9 @@ class Program
             {
 
                 // Print the loaded entries.
-                foreach (Entry entry in old_entries.Entries)
-                {
-                    Console.WriteLine($"{entry.datePrompt}");
-                    Console.WriteLine($"{entry.response}");
-                    Console.WriteLine("");
-                }
+                oldEntries.DisplayJournal();
                 // Print the new entries.
-                foreach (Entry entry in journal.Entries)
-                {
-                    Console.WriteLine($"{entry.datePrompt}");
-                    Console.WriteLine($"{entry.response}");
-                    Console.WriteLine("");
-                }
+                journal.DisplayJournal();
             }
             // If loading go here.
             else if (choice == "3")
@@ -92,31 +56,7 @@ class Program
                 // Get user input, open file.
                 Console.WriteLine("Please enter the name of the file you wish to load.");
                 string fileName = Console.ReadLine();
-
-                string[] lines = System.IO.File.ReadAllLines(fileName);
-                int count = 0;
-                // Initialize a new entry; clear previously loaded entries.
-                Entry entry = new Entry();
-                old_entries = new Journal();
-                foreach (string line in lines)
-                {
-                    // Every other line is a date+prompt and a response. Therefore, every other line a new entry must be made
-                    // and every other line it is added to the old_entries journal.
-                    if (count % 2 == 0)
-                    {
-                        entry = new Entry();
-                        entry.datePrompt = line;
-                    }
-                    else
-                    {
-                        entry.response = line;
-                    }
-                    if (count % 2 == 1)
-                    {
-                        old_entries.Entries.Add(entry);
-                    }
-                    count ++;
-                }
+                oldEntries.ReadFile(fileName);
                 // Clear journal to prevent multiple instances of entries from showing up.
                 journal = new Journal();
             }
@@ -126,55 +66,26 @@ class Program
                 // Get user input, open the file.
                 Console.WriteLine("Where do you want to save this file to?");
                 string fileName = Console.ReadLine();
-                string[] lines = System.IO.File.ReadAllLines(fileName);
                 int count = 0;
                 // Clear old entries
                 Entry entry1 = new Entry();
-                old_entries = new Journal();
-                // This is reused code from loading the file, as we need to load the file's previous entries to add onto it.
-                foreach (string line in lines)
+                oldEntries = new Journal();
+                if(File.Exists(fileName))
                 {
-                    if (count % 2 == 0)
-                    {
-                        entry1 = new Entry();
-                        entry1.datePrompt = line;
-                    }
-                    else
-                    {
-                        entry1.response = line;
-                    }
-                    if (count % 2 == 1)
-                    {
-                        old_entries.Entries.Add(entry1);
-                    }
+                    oldEntries.ReadFile(fileName);
+                }               
+                // Notably clearing journal is not here because we are going to be using it.
+                // Put the old entries back into the journal
+                oldEntries.WriteFile(fileName, journal);
+                count = 0;
+                // Next, we set the oldEntries to contain the new ones, as the loaded file now has both sets of entries.
+                foreach (Entry entry in journal.Entries)
+                {
+                    oldEntries.Entries.Add(journal.Entries[count]);
                     count ++;
                 }
-                // Notably clearing journal is not here because we are going to be using it.
-                using (StreamWriter outputFile = new StreamWriter(fileName))
-                {
-                    // Put the old entries back into the journal
-                    foreach (Entry entry in old_entries.Entries)
-                    {
-                        outputFile.WriteLine($"{entry.datePrompt}");
-                        outputFile.WriteLine($"{entry.response}");
-                    }
-                    // Add the new ones
-                    foreach (Entry entry in journal.Entries)
-                    {
-                        outputFile.WriteLine($"{entry.datePrompt}");
-                        outputFile.WriteLine($"{entry.response}");
-                    }
-                    count = 0;
-                    // Next, we set the old_entries to contain the new ones, as the loaded file now has both sets of entries.
-                    foreach (Entry entry in journal.Entries)
-                    {
-                        int length = journal.Entries.Count();
-                        old_entries.Entries.Add(journal.Entries[count]);
-                        count ++;
-                    }
-                    // Clear journal again; the entries are contained in old_entries.
-                    journal = new Journal();
-                }
+                // Clear journal again; the entries are contained in oldEntries.
+                journal = new Journal();
             }
             // If quitting, end the loop.
             else if (choice == "5")

@@ -3,6 +3,10 @@ public class Entry
     public string datePrompt { get; set; }
     public string response { get; set; }
 
+    public void SetDatePrompt(string newDatePrompt)
+    {
+        datePrompt = newDatePrompt;
+    }
     public Entry WriteEntry(string prompt)
     {
         DateTime theCurrentTime = DateTime.Now;
