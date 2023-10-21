@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {    
+        // Unfortunately, I couldn't make my idea to read a file work, so I instead have to hard-code my scriptures.
         List<Scripture> scriptures = new List<Scripture>();
         Scripture scripture1 = new Scripture("This is my work and glory -to bring to pass the immortality and eternal life of man.", "Moses 1:39");
         scriptures.Add(scripture1);
@@ -18,30 +19,27 @@ class Program
         scripture1 = new Scripture("Therefore shall a man leave his father and his mother, and shall cleave unto his wife: and they shall be one flesh.", "Genesis 2:24");
         scriptures.Add(scripture1);
 
+        // Select a random scripture from the list to be mastered.
         var random = new Random();
         int index = random.Next(scriptures.Count);
+        // Start a while loop
         bool remain = true;
         while (remain)
         {
-            Reference reference = scriptures[index].GetReference();
-            Console.WriteLine($"{reference.GetReference()}");
-            List<Word> verseWords = scriptures[index].GetVerse();
-            bool first = true;
-            foreach (Word verse in verseWords)
+            Console.Clear();
+            // Display the scripture.
+            scriptures[index].DisplayScripture();
+            
+            Console.WriteLine("Press enter to continue or type 'quit' to finish:");
+            string input = Console.ReadLine();
+            if (input == "quit")
             {
-                string word = verse.GetWord();
-                if (first)
-                {
-                    Console.Write($"{word}");
-                    first = false;
-                }
-                else
-                {
-                    Console.Write($" {word}");
-                }
-                
+                remain = false;
             }
-            Console.WriteLine("");
+            else
+            {
+                remain = scriptures[index].HideWords();
+            }
         }
     }
 }
