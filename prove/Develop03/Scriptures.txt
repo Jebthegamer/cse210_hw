@@ -1,3 +1,5 @@
+For the sake of the program, this is useless. However, it was useful for formatting the scriptures in VS Code, and if I were to add
+the ability to read the file, I'd like to keep this file.
 Moses 1:39
 This is my work and glory -to bring to pass the immortality and eternal life of man.
 Moses 7:18
