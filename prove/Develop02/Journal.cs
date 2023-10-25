@@ -54,4 +54,19 @@ public class Journal
             }
         }
     }
+    public Journal SaveFile(string fileName, Journal journal)
+    {
+        if(File.Exists(fileName))
+        {
+            ReadFile(fileName);
+        }               
+        // Notably clearing journal is not here because we are going to be using it.
+        // Put the old entries back into the journal
+        WriteFile(fileName, journal);
+        // Next, we set the oldEntries to contain the new ones, as the loaded file now has both sets of entries.
+        ReadFile(fileName);
+        // Clear journal again; the entries are contained in oldEntries.
+        journal = new Journal();
+        return journal;
+    }
 }

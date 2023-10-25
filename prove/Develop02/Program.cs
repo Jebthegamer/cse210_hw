@@ -44,7 +44,6 @@ class Program
             // Go to this section if displaying entries.
             else if (choice == "2")
             {
-
                 // Print the loaded entries.
                 oldEntries.DisplayJournal();
                 // Print the new entries.
@@ -66,26 +65,8 @@ class Program
                 // Get user input, open the file.
                 Console.WriteLine("Where do you want to save this file to?");
                 string fileName = Console.ReadLine();
-                int count = 0;
-                // Clear old entries
-                Entry entry1 = new Entry();
-                oldEntries = new Journal();
-                if(File.Exists(fileName))
-                {
-                    oldEntries.ReadFile(fileName);
-                }               
-                // Notably clearing journal is not here because we are going to be using it.
-                // Put the old entries back into the journal
-                oldEntries.WriteFile(fileName, journal);
-                count = 0;
-                // Next, we set the oldEntries to contain the new ones, as the loaded file now has both sets of entries.
-                foreach (Entry entry in journal.Entries)
-                {
-                    oldEntries.Entries.Add(journal.Entries[count]);
-                    count ++;
-                }
-                // Clear journal again; the entries are contained in oldEntries.
-                journal = new Journal();
+                
+                journal = oldEntries.SaveFile(fileName, journal);
             }
             // If quitting, end the loop.
             else if (choice == "5")
@@ -110,7 +91,7 @@ class Program
                     }
                 }
                 // The reason why I didn't use the above logic for the journals is because I wanted it to be possible to add 
-                //the new entries of the journal into a separate file than the one that was loaded.
+                // the new entries of the journal into a separate file than the one that was loaded.
                 // I exceeded requirements by adding a hidden 6th feature; adding prompts to the list. These added prompts are
                 // added to the "Prompts.txt" file, which allows them to be used when starting up the program in future instances.
             }
