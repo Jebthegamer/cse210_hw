@@ -7,6 +7,10 @@ public class Assignment
         string summary = $"{_studentName}; {_topic}";
         return summary;
     }
+    public string GetStudentName()
+    {
+        return _studentName;
+    }
     public Assignment(string name, string topic)
     {
         _studentName = name;
