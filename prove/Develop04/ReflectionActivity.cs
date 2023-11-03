@@ -1,26 +1,27 @@
 public class ReflectionActivity : Activity
 {
-    private List<string> _prompts { get; set; }
-    private List<string> _clarifications { get; set; }
+    private List<string> _prompts = new List<string>
+    {
+        "Think of a time you helped someone else",
+        "Think of when you learnt an important lesson",
+        "Think of one instance where you felt God's hand in your life"
+    };
+    private List<string> _clarifications = new List<string>
+    {
+        
+        "How did this make you feel?",
+        "Why was this experience meaningful to you?",
+        "What started this experience?",
+        "What did you learn about yourself through this experience?",
+        "How can you keep this experience in mind in the future?"
+    };
     public ReflectionActivity() : base("Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
     {
-        _prompts = new List<string>();
-        _clarifications = new List<string>();
-    }
-    public void AddPrompt(string prompt)
-    {
-        _prompts.Add(prompt);
-    }
-
-    public void AddClarification(string clarification)
-    {
-        _clarifications.Add(clarification);
     }
     public void RunActivity()
     {
         var random = new Random();
-        int index = random.Next(_prompts.Count);
-        Console.Clear();
+        int index = random.Next(_prompts.Count());
         Console.WriteLine("Get ready...");
         Animation(5);
         Console.WriteLine("");
@@ -34,7 +35,7 @@ public class ReflectionActivity : Activity
         Console.WriteLine("You may begin in: ");
         CountDown(3);
         Console.Clear();
-        int count = Duration;
+        int count = base.GetDuration();
         while (count != 0)
         {
             index = random.Next(_clarifications.Count);
@@ -43,7 +44,7 @@ public class ReflectionActivity : Activity
             Console.Write("\n");
             count -= 5;
         }
-        Console.WriteLine("");
+        Console.Clear();
         EndingMessage();
 
     }
@@ -54,21 +55,27 @@ public class ReflectionActivity : Activity
         {
             if (alternate)
             {
-                Console.Write("WM ");
-                Thread.Sleep(500);
-                Console.Write(" MW");
-                Thread.Sleep(500);
-                ClearAnimation(6);
+                Console.Write("(0");
+                Thread.Sleep(250);
+                Console.Write("-");
+                Thread.Sleep(250);
+                Console.Write("0)");
+                Thread.Sleep(250);
+                ClearAnimation(5);
+                Thread.Sleep(250);
                 seconds--;
                 alternate = false;
             }
             else
             {
-                Console.Write("0O ");
-                Thread.Sleep(500);
-                Console.Write(" O0");
-                Thread.Sleep(500);
-                ClearAnimation(6);
+                Console.Write("0O");
+                Thread.Sleep(250);
+                Console.Write(" | ");
+                Thread.Sleep(250);
+                Console.Write("O0");
+                Thread.Sleep(250);
+                ClearAnimation(7);
+                Thread.Sleep(250);
                 seconds--;
                 alternate = true;
             }

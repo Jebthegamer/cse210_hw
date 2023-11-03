@@ -8,9 +8,8 @@ public class BreathingActivity : Activity
     }
     public void RunActivity()
     {
-        Console.Clear();
-        int breathCount = Duration / 10;
-        if (Duration % 10 != 0)
+        int breathCount = base.GetDuration() / 10;
+        if (base.GetDuration() % 10 != 0)
         {
             breathCount ++;
         }

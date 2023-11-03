@@ -1,24 +1,48 @@
 using System;
+using Microsoft.Win32.SafeHandles;
 
 class Program
 {
     static void Main(string[] args)
     {
-        /*
-        BreathingActivity breathingActivity = new();
-        breathingActivity.WelcomeMessage();
-        breathingActivity.RunActivity();
-        */
-        ReflectionActivity reflectionActivity = new();
-        reflectionActivity.WelcomeMessage();
-        reflectionActivity.AddPrompt("Think of a time you helped someone else");
-        reflectionActivity.AddPrompt("Think of when you learnt an important lesson");
-        reflectionActivity.AddPrompt("Think of one instance where you felt God's hand in your life");
-        reflectionActivity.AddClarification("How did this make you feel?");
-        reflectionActivity.AddClarification("Why was this experience meaningful to you?");
-        reflectionActivity.AddClarification("What started this experience?");
-        reflectionActivity.AddClarification("What did you learn about yourself through this experience?");
-        reflectionActivity.AddClarification("How can you keep this experience in mind in the future?");
-        reflectionActivity.RunActivity();
+        bool remain = true;
+        while (remain)
+        {
+            Console.Clear();
+            Console.WriteLine("Menu options: ");
+            Console.WriteLine(" 1. Start Breathing Activity");
+            Console.WriteLine(" 2. Start Reflecting Activity");
+            Console.WriteLine(" 3. Start Listing Activity");
+            Console.WriteLine(" 4. Quit");
+            Console.Write("Select a choice from the menu: ");
+            int choice = int.Parse(Console.ReadLine());
+            Console.Clear();
+            if (choice == 1)
+            {
+                BreathingActivity breathingActivity = new();
+                breathingActivity.WelcomeMessage();
+                breathingActivity.RunActivity();
+            }
+            else if (choice == 2)
+            {
+                ReflectionActivity reflectionActivity = new();
+                reflectionActivity.WelcomeMessage();
+                reflectionActivity.RunActivity(); 
+            }
+            else if (choice == 3)
+            {
+                ListingActivity listingActivity = new();
+                listingActivity.WelcomeMessage();
+                listingActivity.RunActivity();
+            }
+            else if (choice == 4)
+            {
+                remain = false;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input; please enter a valid input.");
+            }
+        }
     }
 }

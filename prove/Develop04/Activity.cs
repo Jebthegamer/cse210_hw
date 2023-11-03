@@ -1,8 +1,8 @@
 public class Activity
 {
-    public string ActivityName { get; set; }
-    public int Duration { get; set; }
-    public string Description { get; set; }
+    private string ActivityName { get; set; }
+    private int Duration { get; set; }
+    private string Description { get; set; }
 
     public void WelcomeMessage()
     {
@@ -12,16 +12,20 @@ public class Activity
         Console.WriteLine("");
         Console.Write("How long, in seconds, would you like for your session? ");
         Duration = int.Parse(Console.ReadLine());
+        Console.Clear();
+    }
+    public int GetDuration()
+    {
+        return Duration;
     }
 
     public void EndingMessage()
     {
         Console.WriteLine("Well done!");
-
-        Thread.Sleep(500);
-
+        IdleAnimation(5);
         Console.WriteLine("");
         Console.WriteLine($"You have completed another {Duration} seconds of the {ActivityName}!");
+        IdleAnimation(5);
     }
     public void SetDuration(int time)
     {
@@ -63,5 +67,23 @@ public class Activity
                 Console.Write("\b \b");
                 seconds--;
             }
+    }
+    private void IdleAnimation(int seconds)
+    {
+        while (seconds != 0)
+        {
+            int x = 0;
+            while (x < 2)
+            {
+                Console.Write("(");
+                Thread.Sleep(200);
+                Console.Write(")");
+                Thread.Sleep(200);
+                x++;
+            }
+            ClearAnimation(4);
+            Thread.Sleep(200);
+            seconds--;
+        }
     }
 }
