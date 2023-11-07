@@ -1,5 +1,3 @@
-using System.Drawing;
-
 public class Rectangle : Shape
 {
     private double _length { get; set; }
