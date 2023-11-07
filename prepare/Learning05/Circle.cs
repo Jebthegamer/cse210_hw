@@ -8,7 +8,6 @@ public class Circle : Shape
     }
     public override double GetArea()
     {
-        double area = _radius * _radius * Math.PI;
-        return area;
+        return _radius * _radius * Math.PI;
     }
 }
