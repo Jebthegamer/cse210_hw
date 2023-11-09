@@ -25,6 +25,7 @@ public class Journal
             // and every other line it is added to the oldEntries journal.
             if (count % 2 == 0)
             {
+                entry = new Entry();
                 entry.SetDatePrompt(line);
             }
             else
@@ -40,33 +41,42 @@ public class Journal
     }
     public void WriteFile(string fileName, Journal journal)
     {
-        using (StreamWriter outputFile = new StreamWriter(fileName))
+        if (File.Exists(fileName))
         {
-            foreach (Entry entry in Entries)
+            using (StreamWriter outputFile = File.AppendText(fileName))
             {
-                outputFile.WriteLine($"{entry.datePrompt}");
-                outputFile.WriteLine($"{entry.response}");
-            }
-            foreach (Entry entry1 in journal.Entries)
+                foreach (Entry entry in Entries)
+                {
+                    outputFile.WriteLine($"{entry.datePrompt}");
+                    outputFile.WriteLine($"{entry.response}");
+                }
+                foreach (Entry entry1 in journal.Entries)
+                {
+                    outputFile.WriteLine($"{entry1.datePrompt}");
+                    outputFile.WriteLine($"{entry1.response}");
+                }
+            }            
+        }
+        else
+        {
+            using (StreamWriter outputFile = File.CreateText(fileName))
             {
-                outputFile.WriteLine($"{entry1.datePrompt}");
-                outputFile.WriteLine($"{entry1.response}");
+                foreach (Entry entry in Entries)
+                {
+                    outputFile.WriteLine($"{entry.datePrompt}");
+                    outputFile.WriteLine($"{entry.response}");
+                }
+                foreach (Entry entry1 in journal.Entries)
+                {
+                    outputFile.WriteLine($"{entry1.datePrompt}");
+                    outputFile.WriteLine($"{entry1.response}");
+                }
             }
         }
+
     }
-    public Journal SaveFile(string fileName, Journal journal)
+    public void SaveFile(string fileName, Journal journal)
     {
-        if(File.Exists(fileName))
-        {
-            ReadFile(fileName);
-        }               
-        // Notably clearing journal is not here because we are going to be using it.
-        // Put the old entries back into the journal
         WriteFile(fileName, journal);
-        // Next, we set the oldEntries to contain the new ones, as the loaded file now has both sets of entries.
-        ReadFile(fileName);
-        // Clear journal again; the entries are contained in oldEntries.
-        journal = new Journal();
-        return journal;
     }
 }

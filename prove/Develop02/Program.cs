@@ -8,7 +8,6 @@ class Program
     {
         // Initialize journals and the continue loop.
         Journal journal = new Journal();
-        Journal oldEntries = new Journal();
         bool continueLoop = true;
         while (continueLoop)
         {
@@ -44,9 +43,6 @@ class Program
             // Go to this section if displaying entries.
             else if (choice == "2")
             {
-                // Print the loaded entries.
-                oldEntries.DisplayJournal();
-                // Print the new entries.
                 journal.DisplayJournal();
             }
             // If loading go here.
@@ -55,9 +51,8 @@ class Program
                 // Get user input, open file.
                 Console.WriteLine("Please enter the name of the file you wish to load.");
                 string fileName = Console.ReadLine();
-                oldEntries.ReadFile(fileName);
-                // Clear journal to prevent multiple instances of entries from showing up.
                 journal = new Journal();
+                journal.ReadFile(fileName);
             }
             // If saving, go here.
             else if (choice == "4")
@@ -66,7 +61,7 @@ class Program
                 Console.WriteLine("Where do you want to save this file to?");
                 string fileName = Console.ReadLine();
                 
-                journal = oldEntries.SaveFile(fileName, journal);
+                journal.WriteFile(fileName, journal);
             }
             // If quitting, end the loop.
             else if (choice == "5")
