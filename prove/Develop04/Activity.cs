@@ -12,7 +12,6 @@ public class Activity
         Console.WriteLine(Description);
         Console.WriteLine("");
         Console.Write("How long, in seconds, would you like for your session? ");
-        Duration = int.Parse(Console.ReadLine());
         Console.Clear();
     }
     // A getter for Duration
@@ -28,7 +27,6 @@ public class Activity
         Console.WriteLine("");
         Console.WriteLine($"You have completed another {Duration} seconds of the {ActivityName}!");
         IdleAnimation(5);
-        Console.WriteLine("Get ready...");
     }
     //  The constructor for the Activity class.
     public Activity(string name, string description)

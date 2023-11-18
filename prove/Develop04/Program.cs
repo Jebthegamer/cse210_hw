@@ -1,6 +1,23 @@
 using System;
 using Microsoft.Win32.SafeHandles;
+using System.Text.Json;
+namespace SerializeBasic
+{
+    public class BreathingActivity2 : BreathingActivity
+    {
+        string ActivityName { get; set; }
+        int Duration { get; set; }
+        string Description { get; set; }
+    }
+    public class ListingActivity2 : ListingActivity
+    {
 
+    } 
+    public class ReflectionActivity2 : ReflectionActivity
+    {
+
+    }
+}
 class Program
 {
     static void Main(string[] args)
@@ -25,7 +42,10 @@ class Program
             {
                 BreathingActivity breathingActivity = new();
                 breathingActivity.WelcomeMessage();
+                string jsonString = JsonSerializer.Serialize<BreathingActivity>(breathingActivity);
+                Console.WriteLine($"{jsonString}");
                 breathingActivity.RunActivity();
+                
             }
             else if (choice == 2)
             {
