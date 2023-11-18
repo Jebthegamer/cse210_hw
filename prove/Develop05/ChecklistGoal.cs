@@ -1,8 +1,8 @@
 public class ChecklistGoal : EternalGoal
 {
-    public int Completed { get; set; }
-    public int TotalNeeded { get; set; }
-    public int BonusPoints { get; set; }
+    private int Completed { get; set; }
+    private int TotalNeeded { get; set; }
+    private int BonusPoints { get; set; }
     public ChecklistGoal(string name, string description, int points, int total, int bonus) : base(name, description, points)
     {
         Completed = 0;
@@ -15,8 +15,15 @@ public class ChecklistGoal : EternalGoal
         if (Completed < TotalNeeded)
         {
             Completed++;
+            int points = 0;
             Console.WriteLine($"Congratulations! You have scored {Points} points!");
-            return Points;
+            if (Completed == TotalNeeded)
+            {
+                points += BonusPoints;
+            }
+            points += Points;
+            UpdateSaveString();
+            return points;
         }
         else
         {

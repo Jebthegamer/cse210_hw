@@ -30,6 +30,7 @@ public class SimpleGoal : EternalGoal
         else
         {
             Console.WriteLine($"Congratulations! You have scored {Points} points!");
+            completed = true;
             return Points;
         }
     }

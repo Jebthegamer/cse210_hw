@@ -1,9 +1,9 @@
 public class EternalGoal
 {
-    public string GoalName { get; set; }
-    public string GoalDescription { get; set; }
-    public int Points { get; set; }
-    public string SaveString { get; set; }
+    protected string GoalName { get; set; }
+    protected string GoalDescription { get; set; }
+    protected int Points { get; set; }
+    protected string SaveString { get; set; }
     public EternalGoal(string name, string description, int points)
     {
         GoalName = name;
