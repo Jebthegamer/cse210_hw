@@ -17,6 +17,7 @@ public class ChecklistGoal : EternalGoal
         BonusPoints = bonus;
         UpdateSaveString();
     }
+    // Increase the count of completed goals, give the bonus if applicable. If it's complete, give no points.
     public override int CompleteGoal()
     {
         if (Completed < TotalNeeded)
@@ -25,6 +26,7 @@ public class ChecklistGoal : EternalGoal
             int points = 0;
             points += Points;
             Console.WriteLine($"Congratulations! You have scored {Points} points!");
+            Celebration();
             if (Completed == TotalNeeded)
             {
                 points += BonusPoints;
@@ -52,18 +54,6 @@ public class ChecklistGoal : EternalGoal
     public override void UpdateSaveString()
     {
         SaveString = $"ChecklistGoal,{GoalName},{GoalDescription},{Points},{BonusPoints},{TotalNeeded},{Completed}";
-    }
-    private void SetBonusPoints(int i)
-    {
-        BonusPoints = i;
-    }
-    private void SetTotalNeeded(int i)
-    {
-        TotalNeeded = i;
-    }
-    private void SetCompleted(int i)
-    {
-        Completed = i;
     }
     public override ChecklistGoal DecodeSaveString(string saveString)
     {

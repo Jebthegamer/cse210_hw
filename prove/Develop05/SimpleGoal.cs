@@ -24,6 +24,7 @@ public class SimpleGoal : EternalGoal
             Console.WriteLine($"{i}. [ ] {GoalName} ({GoalDescription})");
         }
     }
+    // Give the points for the goal if it's not complete, otherwise give no points. 
     public override int CompleteGoal()
     {
         if (_completed)
@@ -36,6 +37,7 @@ public class SimpleGoal : EternalGoal
             Console.WriteLine($"Congratulations! You have scored {Points} points!");
             _completed = true;
             UpdateSaveString();
+            Celebration();
             return Points;
         }
 

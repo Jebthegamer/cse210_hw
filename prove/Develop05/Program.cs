@@ -1,13 +1,15 @@
 using System;
-//Use serialization for file saving
+using System.Diagnostics.Metrics;
 class Program
 {
     static void Main(string[] args)
     {
+        // Initialize variables
         bool remain = true;
         int points = 0;
         int choice;
         List<EternalGoal> goals = new List<EternalGoal>();
+        // Print the menu
         while (remain)
         {
             Console.WriteLine($"You have {points} points");
@@ -36,6 +38,7 @@ class Program
                 string description = Console.ReadLine();
                 Console.Write("What is the number of points associated with it? ");
                 int pointValue = int.Parse(Console.ReadLine());
+                // Filter based on goal types
                 if (goalType == 1)
                 {
                     SimpleGoal simpleGoal = new SimpleGoal(goalName, description, pointValue);
@@ -58,14 +61,13 @@ class Program
                 else
                 {
                     Console.WriteLine("The number you entered is not a valid choice.");
-                    continue;
                 }
 
             }
             else if (choice == 2)
             {
                 int counter = 1;
-                // List goals
+                // List goals by printing them individually
                 foreach (EternalGoal goal in goals)
                 {
                     goal.DisplayGoal(counter);
@@ -77,10 +79,12 @@ class Program
                 // Save goals
                 Console.Write("What is the name of the file you would like to save to? ");
                 string fileName = Console.ReadLine();
+                // Clear the file's previous contents, print the points.
                 using (StreamWriter outputFile = File.CreateText(fileName))
                 {
                     outputFile.WriteLine($"{points}");
                 }
+                // Print the goals.
                 foreach (EternalGoal goal in goals)
                 {
                     using (StreamWriter outputFile = File.AppendText(fileName))
@@ -92,34 +96,43 @@ class Program
             else if (choice == 4)
             {
                 // Load goals
-                Console.Write("What is the name of the file you would like to load information from ? ");
+                Console.Write("What is the name of the file you would like to load information from? ");
                 string fileName = Console.ReadLine();
-                EternalGoal eternalGoal = new("", "", 0);
-                ChecklistGoal checklistGoal = new("", "", 0, 0, 0);
-                SimpleGoal simpleGoal = new("", "", 0);
-                string[] lines = System.IO.File.ReadAllLines(fileName);
-                foreach (string words in lines)
+                // If the file exists, load the goals. Otherwise print the error message.
+                if (File.Exists(fileName))
                 {
-                    string[] strings = words.Split(",");
-                    if (strings[0] == "EternalGoal")
+                    EternalGoal eternalGoal = new("", "", 0);
+                    ChecklistGoal checklistGoal = new("", "", 0, 0, 0);
+                    SimpleGoal simpleGoal = new("", "", 0);
+                    string[] lines = System.IO.File.ReadAllLines(fileName);
+                    foreach (string words in lines)
                     {
-                        eternalGoal = eternalGoal.DecodeSaveString(words);
-                        goals.Add(eternalGoal);
+                        // If the line is associated with a goal, create the goal. Otherwise, set the points to the value.
+                        string[] strings = words.Split(",");
+                        if (strings[0] == "EternalGoal")
+                        {
+                            eternalGoal = eternalGoal.DecodeSaveString(words);
+                            goals.Add(eternalGoal);
+                        }
+                        else if (strings[0] == "ChecklistGoal")
+                        {
+                            checklistGoal = checklistGoal.DecodeSaveString(words);
+                            goals.Add(checklistGoal);
+                        }
+                        else if (strings[0] == "SimpleGoal")
+                        {
+                            simpleGoal = simpleGoal.DecodeSaveString(words);
+                            goals.Add(simpleGoal);
+                        }
+                        else
+                        {
+                            points = int.Parse(words);
+                        }
                     }
-                    else if (strings[0] == "ChecklistGoal")
-                    {
-                        checklistGoal = checklistGoal.DecodeSaveString(words);
-                        goals.Add(checklistGoal);
-                    }
-                    else if (strings[0] == "SimpleGoal")
-                    {
-                        simpleGoal = simpleGoal.DecodeSaveString(words);
-                        goals.Add(simpleGoal);
-                    }
-                    else
-                    {
-                        points = int.Parse(words);
-                    }
+                }
+                else
+                {
+                    Console.WriteLine("The file you are trying to load from doesn't exist.");
                 }
             }
             else if (choice == 5)
@@ -140,8 +153,7 @@ class Program
             {
                 // Quit
                 remain = false;
-            }
-            
+            }            
         }
     }
 }
