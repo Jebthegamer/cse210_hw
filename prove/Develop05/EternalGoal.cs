@@ -1,3 +1,6 @@
+using System.Net.NetworkInformation;
+using System.Security.Cryptography;
+
 public class EternalGoal
 {
     protected string GoalName { get; set; }
@@ -13,7 +16,7 @@ public class EternalGoal
     }
     public virtual void UpdateSaveString()
     {
-        SaveString = $"EternalGoal:{GoalName},{GoalDescription},{Points}";
+        SaveString = $"EternalGoal,{GoalName},{GoalDescription},{Points}";
     }
     public virtual void DisplayGoal(int i)
     {
@@ -23,5 +26,15 @@ public class EternalGoal
     {
         Console.WriteLine($"Congratulations! You have scored {Points} points!");
         return Points;
+    }
+    public string GetSaveString()
+    {
+        return SaveString;
+    }
+    public virtual EternalGoal DecodeSaveString(string saveString)
+    {
+        string[] pieces = saveString.Split(",");
+        EternalGoal eternalGoal = new(pieces[1], pieces[2], int.Parse(pieces[3]));
+        return eternalGoal;
     }
 }

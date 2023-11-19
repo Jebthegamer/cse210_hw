@@ -1,0 +1,3 @@
+101
+SimpleGoal,1,1,1,True
+EternalGoal,Read Scriptures,Read scriptures everyday,50

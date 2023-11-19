@@ -7,6 +7,7 @@ class Program
         bool remain = true;
         int points = 0;
         int choice;
+        List<EternalGoal> goals = new List<EternalGoal>();
         while (remain)
         {
             Console.WriteLine($"You have {points} points");
@@ -37,11 +38,13 @@ class Program
                 int pointValue = int.Parse(Console.ReadLine());
                 if (goalType == 1)
                 {
-                    SimpleGoal simpleGoal = new SimpleGoal(goalName, description, points);
+                    SimpleGoal simpleGoal = new SimpleGoal(goalName, description, pointValue);
+                    goals.Add(simpleGoal);
                 }
                 else if (goalType == 2)
                 {
-                    EternalGoal eternalGoal = new EternalGoal(goalName, description, points);
+                    EternalGoal eternalGoal = new EternalGoal(goalName, description, pointValue);
+                    goals.Add(eternalGoal);
                 }
                 else if (goalType == 3)
                 {
@@ -49,7 +52,8 @@ class Program
                     int numberNeeded = int.Parse(Console.ReadLine());
                     Console.Write("What is the bonus points when you complete it? ");
                     int bonusPoints = int.Parse(Console.ReadLine());
-                    ChecklistGoal checklistGoal = new ChecklistGoal(goalName, description, points, numberNeeded, bonusPoints);
+                    ChecklistGoal checklistGoal = new ChecklistGoal(goalName, description, pointValue, numberNeeded, bonusPoints);
+                    goals.Add(checklistGoal);
                 }
                 else
                 {
@@ -60,19 +64,77 @@ class Program
             }
             else if (choice == 2)
             {
+                int counter = 1;
                 // List goals
+                foreach (EternalGoal goal in goals)
+                {
+                    goal.DisplayGoal(counter);
+                    counter++;
+                }
             }
             else if (choice == 3)
             {
                 // Save goals
+                Console.Write("What is the name of the file you would like to save to? ");
+                string fileName = Console.ReadLine();
+                using (StreamWriter outputFile = File.CreateText(fileName))
+                {
+                    outputFile.WriteLine($"{points}");
+                }
+                foreach (EternalGoal goal in goals)
+                {
+                    using (StreamWriter outputFile = File.AppendText(fileName))
+                    {
+                        outputFile.WriteLine(goal.GetSaveString());
+                    }
+                }
             }
             else if (choice == 4)
             {
                 // Load goals
+                Console.Write("What is the name of the file you would like to load information from ? ");
+                string fileName = Console.ReadLine();
+                EternalGoal eternalGoal = new("", "", 0);
+                ChecklistGoal checklistGoal = new("", "", 0, 0, 0);
+                SimpleGoal simpleGoal = new("", "", 0);
+                string[] lines = System.IO.File.ReadAllLines(fileName);
+                foreach (string words in lines)
+                {
+                    string[] strings = words.Split(",");
+                    if (strings[0] == "EternalGoal")
+                    {
+                        eternalGoal = eternalGoal.DecodeSaveString(words);
+                        goals.Add(eternalGoal);
+                    }
+                    else if (strings[0] == "ChecklistGoal")
+                    {
+                        checklistGoal = checklistGoal.DecodeSaveString(words);
+                        goals.Add(checklistGoal);
+                    }
+                    else if (strings[0] == "SimpleGoal")
+                    {
+                        simpleGoal = simpleGoal.DecodeSaveString(words);
+                        goals.Add(simpleGoal);
+                    }
+                    else
+                    {
+                        points = int.Parse(words);
+                    }
+                }
             }
             else if (choice == 5)
             {
                 // Record event
+                Console.WriteLine("The goals are:");
+                int counter = 1;
+                foreach (EternalGoal goal in goals)
+                {
+                    goal.DisplayGoal(counter);
+                    counter++;
+                }
+                Console.Write("Which goal did you accomplish? ");
+                int goalChoice = int.Parse(Console.ReadLine());
+                points += goals[goalChoice-1].CompleteGoal();
             }
             else if (choice == 6)
             {
