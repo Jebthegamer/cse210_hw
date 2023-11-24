@@ -18,4 +18,10 @@ public class EternalGoal : Goal
         EternalGoal eternalGoal = new(pieces[1], pieces[2], int.Parse(pieces[3]));
         return eternalGoal;
     }
+    public override int CompleteGoal()
+    {
+        Console.WriteLine($"Congratulations! You have scored {Points} points!");
+        Celebration();
+        return Points;
+    }
 }

@@ -14,12 +14,7 @@ public abstract class Goal
     {
         Console.WriteLine($"{i}. [ ] {GoalName} ({GoalDescription})");
     }
-    public virtual int CompleteGoal()
-    {
-        Console.WriteLine($"Congratulations! You have scored {Points} points!");
-        Celebration();
-        return Points;
-    }
+    public abstract int CompleteGoal();
     public string GetSaveString()
     {
         return SaveString;
