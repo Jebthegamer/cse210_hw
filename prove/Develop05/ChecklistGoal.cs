@@ -1,4 +1,4 @@
-public class ChecklistGoal : EternalGoal
+public class ChecklistGoal : Goal
 {
     private int Completed { get; set; }
     private int TotalNeeded { get; set; }

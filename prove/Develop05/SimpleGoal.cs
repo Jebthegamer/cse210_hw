@@ -1,4 +1,4 @@
-public class SimpleGoal : EternalGoal
+public class SimpleGoal : Goal
 {
     private bool _completed = false;
     public SimpleGoal(string name, string description, int points) : base(name, description, points)

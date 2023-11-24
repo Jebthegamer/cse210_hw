@@ -8,7 +8,7 @@ class Program
         bool remain = true;
         int points = 0;
         int choice;
-        List<EternalGoal> goals = new List<EternalGoal>();
+        List<Goal> goals = new List<Goal>();
         // Print the menu
         while (remain)
         {
@@ -68,7 +68,7 @@ class Program
             {
                 int counter = 1;
                 // List goals by printing them individually
-                foreach (EternalGoal goal in goals)
+                foreach (Goal goal in goals)
                 {
                     goal.DisplayGoal(counter);
                     counter++;
@@ -85,7 +85,7 @@ class Program
                     outputFile.WriteLine($"{points}");
                 }
                 // Print the goals.
-                foreach (EternalGoal goal in goals)
+                foreach (Goal goal in goals)
                 {
                     using (StreamWriter outputFile = File.AppendText(fileName))
                     {
@@ -140,7 +140,7 @@ class Program
                 // Record event
                 Console.WriteLine("The goals are:");
                 int counter = 1;
-                foreach (EternalGoal goal in goals)
+                foreach (Goal goal in goals)
                 {
                     goal.DisplayGoal(counter);
                     counter++;
