@@ -1,11 +1,10 @@
+using System.ComponentModel;
+
 public class EternalGoal : Goal
 {
 
-    public EternalGoal(string name, string description, int points)
+    public EternalGoal(string name, string description, int points) : base(name, description, points)
     {
-        GoalName = name;
-        GoalDescription = description;
-        Points = points;
         UpdateSaveString();
     }
     public override void UpdateSaveString()

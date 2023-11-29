@@ -7,7 +7,12 @@ public abstract class Goal
     protected string GoalDescription { get; set; }
     protected int Points { get; set; }
     protected string SaveString { get; set; }
-    
+    public Goal (string name, string description, int points)
+    {
+        GoalName = name;
+        GoalDescription = description;
+        Points = points;
+    }
     // Update the string used for saving information.
     public abstract void UpdateSaveString();
     public virtual void DisplayGoal(int i)
