@@ -1,31 +1,21 @@
 ﻿using System;
+using System.Math;
 
 public class Angle
-{
-	public float degrees { get; set; }
-    public float radians { get; set; }
-    public Angle(float deg = 0, float rad = 0)
+{ 
+	public double Degrees {  get; set; }
+	public double Radians { get; set; }
+	public Angle(float value, bool deg)
 	{
-			degrees = deg;
-			radians = rad;
-	}
-	public float getDegrees()
-	{
-		return degrees;
-	}
-	public float getRadians()
-	{
-		return radians;
-	}
-	private void conversion()
-	{
-		if (degrees == 0)
+		if (deg)
 		{
-			degrees = (radians * 180) / Math.PI;
+			Degrees = value;
+			Radians = Degrees * Math.PI / 180;
 		}
-		else
+		else 
 		{
-			radians = (degrees * Math.PI) / 180;
+			Radians = value;
+            Degrees = Radians * 180 / Math.PI;
 		}
 	}
 }
