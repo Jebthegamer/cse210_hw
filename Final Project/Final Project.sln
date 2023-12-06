@@ -8,12 +8,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F4B4CB80-FED0-43EB-9BF4-A66AE0276524}"
 	ProjectSection(SolutionItems) = preProject
 		Angle.cs = Angle.cs
-		Calculator.cs = Calculator.cs
 		CosinesTriangle.cs = CosinesTriangle.cs
+		DisplayClass.cs = DisplayClass.cs
 		GeneralTriangle.cs = GeneralTriangle.cs
 		Menu.cs = Menu.cs
-		SinesTriangle.cs = SinesTriangle.cs
 		Selection.cs = Selection.cs
+		SinesTriangle.cs = SinesTriangle.cs
 		SSA.cs = SSA.cs
 	EndProjectSection
 EndProject

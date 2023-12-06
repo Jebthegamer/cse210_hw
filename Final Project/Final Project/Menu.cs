@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Final_Project
+﻿namespace Final_Project
 {
     internal class Menu
     {
@@ -47,7 +45,7 @@ namespace Final_Project
                     else if (selection.Name == "AAS")
                         return new SinesTriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC, true, false);
                     else if (selection.Name == "SSA")
-                        return new SSA(SideA, SideB, SideC, AngleA, AngleB, AngleC);
+                        return new SSATriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC);
                 }
             }
 

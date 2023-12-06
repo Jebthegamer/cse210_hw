@@ -28,6 +28,7 @@ public class SinesTriangle : GeneralTriangle
 		{
 			SideB = SideC * Math.Sin(AngleB.Radians) / Math.Sin(AngleC.Radians);
 		}
+		DetermineReality();
 
 	}
 }

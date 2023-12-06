@@ -20,5 +20,6 @@ public class CosinesTriangle : GeneralTriangle
         }
         AngleA = Math.Asin(SideA * Math.Sin(AngleC) / SideC);
         AngleB = new Angle(180 - (AngleA.Degrees + AngleC.Degrees), true);
+        DetermineReality();
     }
 }

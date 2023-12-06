@@ -17,6 +17,17 @@ public abstract class GeneralTriangle
     }
     protected abstract void SolveTriangle();
 
+    protected void DetermineReality(GeneralTriangle triangle)
+    {
+        if (triangle == null) IsReal = false;
+        else
+        {
+            if (triangle.SideA == triangle.SideB + triangle.SideC) IsReal = false;
+            if (triangle.SideB == triangle.SideA + triangle.SideC) IsReal = false;
+            if (triangle.SideC == triangle.SideA + triangle.SideB) IsReal = false;
+            if (triangle.AngleA.Degrees + triangle.AngleB.Degrees + triangle.AngleC.Degrees > 180) IsReal = false;
+        }
+    }
     public double GetSideA() { return sideA;}
     public double GetSideB() { return sideB;}
     public double GetSideC() { return sideC;}

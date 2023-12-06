@@ -35,12 +35,12 @@
             button6 = new Button();
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
+            ValueA = new TextBox();
+            ValueB = new TextBox();
+            ValueC = new TextBox();
+            LabelA = new Label();
+            LabelB = new Label();
+            LabelC = new Label();
             button7 = new Button();
             textBox4 = new TextBox();
             textBox5 = new TextBox();
@@ -74,6 +74,7 @@
             button2.TabIndex = 1;
             button2.Text = "SSS";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click_1;
             // 
             // button3
             // 
@@ -120,53 +121,53 @@
             label2.TabIndex = 7;
             label2.Text = "Sines";
             // 
-            // textBox1
+            // ValueA
             // 
-            textBox1.Location = new Point(663, 140);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 8;
+            ValueA.Location = new Point(663, 140);
+            ValueA.Name = "ValueA";
+            ValueA.Size = new Size(125, 27);
+            ValueA.TabIndex = 8;
             // 
-            // textBox2
+            // ValueB
             // 
-            textBox2.Location = new Point(663, 173);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 9;
+            ValueB.Location = new Point(663, 173);
+            ValueB.Name = "ValueB";
+            ValueB.Size = new Size(125, 27);
+            ValueB.TabIndex = 9;
             // 
-            // textBox3
+            // ValueC
             // 
-            textBox3.Location = new Point(663, 206);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(125, 27);
-            textBox3.TabIndex = 10;
+            ValueC.Location = new Point(663, 206);
+            ValueC.Name = "ValueC";
+            ValueC.Size = new Size(125, 27);
+            ValueC.TabIndex = 10;
             // 
-            // label3
+            // LabelA
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(573, 143);
-            label3.Name = "label3";
-            label3.Size = new Size(59, 20);
-            label3.TabIndex = 11;
-            label3.Text = "Value A";
+            LabelA.AutoSize = true;
+            LabelA.Location = new Point(573, 143);
+            LabelA.Name = "LabelA";
+            LabelA.Size = new Size(59, 20);
+            LabelA.TabIndex = 11;
+            LabelA.Text = "Value A";
             // 
-            // label4
+            // LabelB
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(574, 176);
-            label4.Name = "label4";
-            label4.Size = new Size(58, 20);
-            label4.TabIndex = 12;
-            label4.Text = "Value B";
+            LabelB.AutoSize = true;
+            LabelB.Location = new Point(574, 176);
+            LabelB.Name = "LabelB";
+            LabelB.Size = new Size(58, 20);
+            LabelB.TabIndex = 12;
+            LabelB.Text = "Value B";
             // 
-            // label5
+            // LabelC
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(574, 209);
-            label5.Name = "label5";
-            label5.Size = new Size(58, 20);
-            label5.TabIndex = 13;
-            label5.Text = "Value C";
+            LabelC.AutoSize = true;
+            LabelC.Location = new Point(574, 209);
+            LabelC.Name = "LabelC";
+            LabelC.Size = new Size(58, 20);
+            LabelC.TabIndex = 13;
+            LabelC.Text = "Value C";
             // 
             // button7
             // 
@@ -301,12 +302,12 @@
             Controls.Add(textBox5);
             Controls.Add(textBox4);
             Controls.Add(button7);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(LabelC);
+            Controls.Add(LabelB);
+            Controls.Add(LabelA);
+            Controls.Add(ValueC);
+            Controls.Add(ValueB);
+            Controls.Add(ValueA);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(button6);
@@ -329,12 +330,12 @@
         private Button button6;
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private Label label3;
-        private Label label4;
-        private Label label5;
+        private TextBox ValueA;
+        private TextBox ValueB;
+        private TextBox ValueC;
+        private Label LabelA;
+        private Label LabelB;
+        private Label LabelC;
         private Button button7;
         private TextBox textBox4;
         private TextBox textBox5;
