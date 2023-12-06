@@ -12,13 +12,13 @@ public class CosinesTriangle : GeneralTriangle
     {
         if (SSS)
         {
-            AngleC = Math.Acos((SideA * SideA) + (SideB * SideB) - (SideC * SideC) / (2 * SideA * SideB));
+            AngleC = new Angle(Math.Acos((SideA * SideA) + (SideB * SideB) - (SideC * SideC) / (2 * SideA * SideB)), false);
         }
         else
         {
             SideC = Math.Sqrt((SideA * SideA) + (SideB * SideB) - (2 * SideA * SideB * Math.Cos(AngleC)));
         }
         AngleA = Math.Asin(SideA * Math.Sin(AngleC) / SideC);
-        AngleB = 180 - (AngleA + AngleC);
+        AngleB = new Angle(180 - (AngleA.Degrees + AngleC.Degrees), true);
     }
 }

@@ -8,10 +8,12 @@ public abstract class GeneralTriangle
     public Angle angleA { get; set; }
     public Angle angleB { get; set; }
     public Angle angleC { get; set; }
+    public bool IsReal { get; set; }
 
     public GeneralTriangle(double A, double B, double C, Angle a, Angle b, Angle c)
     {
         sideA = A; sideB = B; sideC = C; angleA = a; angleB = b; angleC = c;
+        IsReal = true;
     }
     protected abstract void SolveTriangle();
 

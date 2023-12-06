@@ -31,7 +31,6 @@
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
-            button4 = new Button();
             button5 = new Button();
             button6 = new Button();
             label1 = new Label();
@@ -55,6 +54,7 @@
             label9 = new Label();
             label10 = new Label();
             label11 = new Label();
+            label12 = new Label();
             SuspendLayout();
             // 
             // button1
@@ -63,7 +63,7 @@
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 0;
-            button1.Text = "Angle a";
+            button1.Text = "AAS";
             button1.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -72,7 +72,7 @@
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 1;
-            button2.Text = "Side A";
+            button2.Text = "SSS";
             button2.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -81,17 +81,8 @@
             button3.Name = "button3";
             button3.Size = new Size(94, 29);
             button3.TabIndex = 2;
-            button3.Text = "Side B";
+            button3.Text = "SAS";
             button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(583, 105);
-            button4.Name = "button4";
-            button4.Size = new Size(94, 29);
-            button4.TabIndex = 3;
-            button4.Text = "Side C";
-            button4.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -99,7 +90,7 @@
             button5.Name = "button5";
             button5.Size = new Size(94, 29);
             button5.TabIndex = 4;
-            button5.Text = "Angle b";
+            button5.Text = "ASA";
             button5.UseVisualStyleBackColor = true;
             // 
             // button6
@@ -108,7 +99,7 @@
             button6.Name = "button6";
             button6.Size = new Size(94, 29);
             button6.TabIndex = 5;
-            button6.Text = "Angle c";
+            button6.Text = "SSA";
             button6.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -116,18 +107,18 @@
             label1.AutoSize = true;
             label1.Location = new Point(606, 12);
             label1.Name = "label1";
-            label1.Size = new Size(44, 20);
+            label1.Size = new Size(59, 20);
             label1.TabIndex = 6;
-            label1.Text = "Sides";
+            label1.Text = "Cosines";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(715, 12);
             label2.Name = "label2";
-            label2.Size = new Size(54, 20);
+            label2.Size = new Size(43, 20);
             label2.TabIndex = 7;
-            label2.Text = "Angles";
+            label2.Text = "Sines";
             // 
             // textBox1
             // 
@@ -155,27 +146,27 @@
             label3.AutoSize = true;
             label3.Location = new Point(573, 143);
             label3.Name = "label3";
-            label3.Size = new Size(84, 20);
+            label3.Size = new Size(59, 20);
             label3.TabIndex = 11;
-            label3.Text = "Selection A";
+            label3.Text = "Value A";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Location = new Point(574, 176);
             label4.Name = "label4";
-            label4.Size = new Size(83, 20);
+            label4.Size = new Size(58, 20);
             label4.TabIndex = 12;
-            label4.Text = "Selection B";
+            label4.Text = "Value B";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Location = new Point(574, 209);
             label5.Name = "label5";
-            label5.Size = new Size(83, 20);
+            label5.Size = new Size(58, 20);
             label5.TabIndex = 13;
-            label5.Text = "Selection C";
+            label5.Text = "Value C";
             // 
             // button7
             // 
@@ -282,11 +273,21 @@
             label11.TabIndex = 26;
             label11.Text = "Side C";
             // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(597, 109);
+            label12.Name = "label12";
+            label12.Size = new Size(85, 20);
+            label12.TabIndex = 27;
+            label12.Text = "Ambiguous";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(label9);
@@ -310,7 +311,6 @@
             Controls.Add(label1);
             Controls.Add(button6);
             Controls.Add(button5);
-            Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -325,7 +325,6 @@
         private Button button1;
         private Button button2;
         private Button button3;
-        private Button button4;
         private Button button5;
         private Button button6;
         private Label label1;
@@ -349,5 +348,6 @@
         private Label label9;
         private Label label10;
         private Label label11;
+        private Label label12;
     }
 }

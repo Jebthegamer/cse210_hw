@@ -5,38 +5,49 @@ public class Menu
     public List<Selection> Selections { get; set; }
     public Menu()
     {
-        Selection SideA = new Selection("SideA", false);
-        Selection SideB = new Selection("SideB", false);
-        Selection SideC = new Selection("SideC", false);
-        Selection AngleA = new Selection("AngleA", false);
-        Selection AngleB = new Selection("AngleB", false);
-        Selection AngleC = new Selection("AngleC", false);
-    Selections = new List<Selection>
+        Selection SSS = new Selection("SSS", false);
+        Selection SSA = new Selection("SSA", false);
+        Selection SAS = new Selection("SAS", false);
+        Selection ASA = new Selection("ASA", false);
+        Selection AAS = new Selection("AAS", false);
+        Selections = new List<Selection>
         {
-            SideA, AngleC, SideB, AngleA, SideC, AngleB
+            SSS, SSA, SAS, ASA, AAS
         };
     }
-    public void ChangeSelections(List<string> names)
+    public void ChangeSelections(string name)
     {
         // Clear the previous selections; defaulting at SSS
         foreach (Selection selection in Selections)
         {
             selection.Status = false;
         }
-        // Set the new selections depending on the three inputs. 
-        foreach (string name in names)
+        // Set the new selections depending on the input. 
+        foreach (Selection selection in Selections)
         {
-            foreach (Selection selection in Selections)
-            {
-                if (selection.Name == name)
-                    selection.Status = true;
-            }
+            if (selection.Name == name)
+                selection.Status = true;
         }
     }
     // Create triangles based on the inputs.
-    public void CreateTriangles()
+    public GeneralTriangle CreateTriangles(double SideA, Angle AngleB, double SideC, Angle AngleA, double SideB, Angle AngleC)
     {
-        List<bool> choices = new List<bool>();
+        foreach (Selection selection in Selections)
+        {
+            if (selection.Status)
+            {
+                if (selection.Name == "SSS")
+                    return new CosinesTriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC, true);
+                else if (selection.Name == "SAS")
+                    return new CosinesTriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC, false);
+                else if (selection.Name == "ASA")
+                    return new SinesTriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC, false, false);
+                else if (selection.Name == "AAS")
+                    return new SinesTriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC, true, false);
+                else if (selection.Name == "SSA")
+                    return new SSA(SideA, SideB, SideC, AngleA, AngleB, AngleC);
+            }
+        }
         
     }
 }
