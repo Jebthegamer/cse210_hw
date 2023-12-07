@@ -42,19 +42,30 @@
             LabelB = new Label();
             LabelC = new Label();
             button7 = new Button();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
+            AngleA = new TextBox();
+            AngleB = new TextBox();
+            AngleC = new TextBox();
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
-            textBox7 = new TextBox();
-            textBox8 = new TextBox();
-            textBox9 = new TextBox();
+            SideA = new TextBox();
+            SideB = new TextBox();
+            SideC = new TextBox();
             label9 = new Label();
             label10 = new Label();
             label11 = new Label();
             label12 = new Label();
+            label3 = new Label();
+            Unit = new Label();
+            degrees = new Button();
+            radians = new Button();
+            AngleB2 = new TextBox();
+            label4 = new Label();
+            label5 = new Label();
+            label13 = new Label();
+            SideC2 = new TextBox();
+            AngleC2 = new TextBox();
+            label14 = new Label();
             SuspendLayout();
             // 
             // button1
@@ -65,6 +76,7 @@
             button1.TabIndex = 0;
             button1.Text = "AAS";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -84,6 +96,7 @@
             button3.TabIndex = 2;
             button3.Text = "SAS";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button5
             // 
@@ -93,6 +106,7 @@
             button5.TabIndex = 4;
             button5.Text = "ASA";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button6
             // 
@@ -102,6 +116,7 @@
             button6.TabIndex = 5;
             button6.Text = "SSA";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // label1
             // 
@@ -177,27 +192,28 @@
             button7.TabIndex = 14;
             button7.Text = "Confirm";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
-            // textBox4
+            // AngleA
             // 
-            textBox4.Location = new Point(663, 286);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(125, 27);
-            textBox4.TabIndex = 15;
+            AngleA.Location = new Point(663, 286);
+            AngleA.Name = "AngleA";
+            AngleA.Size = new Size(125, 27);
+            AngleA.TabIndex = 15;
             // 
-            // textBox5
+            // AngleB
             // 
-            textBox5.Location = new Point(663, 319);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(125, 27);
-            textBox5.TabIndex = 16;
+            AngleB.Location = new Point(663, 319);
+            AngleB.Name = "AngleB";
+            AngleB.Size = new Size(125, 27);
+            AngleB.TabIndex = 16;
             // 
-            // textBox6
+            // AngleC
             // 
-            textBox6.Location = new Point(663, 352);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(125, 27);
-            textBox6.TabIndex = 17;
+            AngleC.Location = new Point(663, 352);
+            AngleC.Name = "AngleC";
+            AngleC.Size = new Size(125, 27);
+            AngleC.TabIndex = 17;
             // 
             // label6
             // 
@@ -226,26 +242,26 @@
             label8.TabIndex = 20;
             label8.Text = "Angle c";
             // 
-            // textBox7
+            // SideA
             // 
-            textBox7.Location = new Point(466, 289);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(125, 27);
-            textBox7.TabIndex = 21;
+            SideA.Location = new Point(466, 289);
+            SideA.Name = "SideA";
+            SideA.Size = new Size(125, 27);
+            SideA.TabIndex = 21;
             // 
-            // textBox8
+            // SideB
             // 
-            textBox8.Location = new Point(466, 322);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(125, 27);
-            textBox8.TabIndex = 22;
+            SideB.Location = new Point(466, 322);
+            SideB.Name = "SideB";
+            SideB.Size = new Size(125, 27);
+            SideB.TabIndex = 22;
             // 
-            // textBox9
+            // SideC
             // 
-            textBox9.Location = new Point(466, 355);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(125, 27);
-            textBox9.TabIndex = 23;
+            SideC.Location = new Point(466, 355);
+            SideC.Name = "SideC";
+            SideC.Size = new Size(125, 27);
+            SideC.TabIndex = 23;
             // 
             // label9
             // 
@@ -283,24 +299,130 @@
             label12.TabIndex = 27;
             label12.Text = "Ambiguous";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(456, 130);
+            label3.Name = "label3";
+            label3.Size = new Size(111, 20);
+            label3.TabIndex = 28;
+            label3.Text = "Angle inputs in:";
+            // 
+            // Unit
+            // 
+            Unit.AutoSize = true;
+            Unit.Location = new Point(482, 155);
+            Unit.Name = "Unit";
+            Unit.Size = new Size(64, 20);
+            Unit.TabIndex = 29;
+            Unit.Text = "Degrees";
+            // 
+            // degrees
+            // 
+            degrees.Location = new Point(466, 178);
+            degrees.Name = "degrees";
+            degrees.Size = new Size(94, 29);
+            degrees.TabIndex = 30;
+            degrees.Text = "Degrees";
+            degrees.UseVisualStyleBackColor = true;
+            degrees.Click += degrees_Click;
+            // 
+            // radians
+            // 
+            radians.Location = new Point(466, 213);
+            radians.Name = "radians";
+            radians.Size = new Size(94, 29);
+            radians.TabIndex = 31;
+            radians.Text = "Radians";
+            radians.UseVisualStyleBackColor = true;
+            radians.Click += radians_Click;
+            // 
+            // AngleB2
+            // 
+            AngleB2.Location = new Point(663, 382);
+            AngleB2.Name = "AngleB2";
+            AngleB2.Size = new Size(125, 27);
+            AngleB2.TabIndex = 32;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(588, 389);
+            label4.Name = "label4";
+            label4.Size = new Size(69, 20);
+            label4.TabIndex = 33;
+            label4.Text = "Angle b2";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(401, 421);
+            label5.Name = "label5";
+            label5.Size = new Size(59, 20);
+            label5.TabIndex = 34;
+            label5.Text = "Side C2";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(588, 421);
+            label13.Name = "label13";
+            label13.Size = new Size(67, 20);
+            label13.TabIndex = 35;
+            label13.Text = "Angle c2";
+            // 
+            // SideC2
+            // 
+            SideC2.Location = new Point(457, 418);
+            SideC2.Name = "SideC2";
+            SideC2.Size = new Size(125, 27);
+            SideC2.TabIndex = 36;
+            // 
+            // AngleC2
+            // 
+            AngleC2.Location = new Point(663, 418);
+            AngleC2.Name = "AngleC2";
+            AngleC2.Size = new Size(125, 27);
+            AngleC2.TabIndex = 37;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(364, 389);
+            label14.Name = "label14";
+            label14.Size = new Size(218, 20);
+            label14.TabIndex = 38;
+            label14.Text = "Only valid for SSA two triangles";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label14);
+            Controls.Add(AngleC2);
+            Controls.Add(SideC2);
+            Controls.Add(label13);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(AngleB2);
+            Controls.Add(radians);
+            Controls.Add(degrees);
+            Controls.Add(Unit);
+            Controls.Add(label3);
             Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(label9);
-            Controls.Add(textBox9);
-            Controls.Add(textBox8);
-            Controls.Add(textBox7);
+            Controls.Add(SideC);
+            Controls.Add(SideB);
+            Controls.Add(SideA);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
+            Controls.Add(AngleC);
+            Controls.Add(AngleB);
+            Controls.Add(AngleA);
             Controls.Add(button7);
             Controls.Add(LabelC);
             Controls.Add(LabelB);
@@ -337,18 +459,29 @@
         private Label LabelB;
         private Label LabelC;
         private Button button7;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
+        private TextBox AngleA;
+        private TextBox AngleB;
+        private TextBox AngleC;
         private Label label6;
         private Label label7;
         private Label label8;
-        private TextBox textBox7;
-        private TextBox textBox8;
-        private TextBox textBox9;
+        private TextBox SideA;
+        private TextBox SideB;
+        private TextBox SideC;
         private Label label9;
         private Label label10;
         private Label label11;
         private Label label12;
+        private Label label3;
+        private Label Unit;
+        private Button degrees;
+        private Button radians;
+        private TextBox AngleB2;
+        private Label label4;
+        private Label label5;
+        private Label label13;
+        private TextBox SideC2;
+        private TextBox AngleC2;
+        private Label label14;
     }
 }

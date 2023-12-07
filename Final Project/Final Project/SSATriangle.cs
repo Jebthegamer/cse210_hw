@@ -12,16 +12,16 @@
             if (SideB < SideA)
             {
 
-                Triangles.Add(new SinesTriangle(SideA, SideB, SideC2, AngleA, AngleB, AngleC, true, true));
+                Triangles.Add(new SinesTriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC, true, true));
             }
             else if (SideB == SideA)
             {
                 if (AngleA.Degrees < 90)
-                    Triangles.Add(new SinesTriangle(SideA, SideB, SideC2, AngleA, AngleB, AngleC, true, true));
+                    Triangles.Add(new SinesTriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC, true, true));
                 else
                     IsReal = false;
             }
-            else if (SideB2 > SideA)
+            else if (SideB > SideA)
             {
                 if (AngleA.Degrees > 90)
                     IsReal = false;
@@ -38,7 +38,7 @@
                         }
                         else
                         {
-                            AngleB2 = new Angle((180 - (SideB * Math.Sin(AngleA.Radians_))), false);
+                            Angle AngleB2 = new Angle((180 - (SideB * Math.Sin(AngleA.Radians))), false);
                             Triangles.Add(new SinesTriangle(SideA, SideB, SideC, AngleA, AngleB2, AngleC, true, true));
                         }
                     }
@@ -51,4 +51,5 @@
                 }
             }
         }
+    }
 }

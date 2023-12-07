@@ -48,7 +48,8 @@
                         return new SSATriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC);
                 }
             }
-
+            Angle angle = new Angle(0, true);
+            return new SinesTriangle(0, 0, 0, angle, angle, angle, true, true);
         }
     }
 }
