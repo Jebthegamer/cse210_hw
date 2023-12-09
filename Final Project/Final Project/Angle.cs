@@ -1,5 +1,6 @@
 ﻿namespace Final_Project
 {
+    //  This class allows for the easy conversion between degrees and radians as an input and output value.
     public class Angle
     {
         public double Degrees { get; set; }

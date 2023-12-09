@@ -42,15 +42,9 @@
             LabelB = new Label();
             LabelC = new Label();
             button7 = new Button();
-            AngleA = new TextBox();
-            AngleB = new TextBox();
-            AngleC = new TextBox();
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
-            SideA = new TextBox();
-            SideB = new TextBox();
-            SideC = new TextBox();
             label9 = new Label();
             label10 = new Label();
             label11 = new Label();
@@ -59,18 +53,34 @@
             Unit = new Label();
             degrees = new Button();
             radians = new Button();
-            AngleB2 = new TextBox();
             label4 = new Label();
             label5 = new Label();
             label13 = new Label();
-            SideC2 = new TextBox();
-            AngleC2 = new TextBox();
             label14 = new Label();
+            LabelSideA = new Label();
+            LabelSideB = new Label();
+            LabelSideC = new Label();
+            LabelAngleA = new Label();
+            LabelAngleB = new Label();
+            LabelAngleC = new Label();
+            LabelAngleB2 = new Label();
+            LabelSideC2 = new Label();
+            LabelAngleC2 = new Label();
+            Information = new Label();
+            welcome = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            label17 = new Label();
+            label18 = new Label();
+            label19 = new Label();
+            label20 = new Label();
+            FactTxt = new Label();
+            FactTxt2 = new Label();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(694, 35);
+            button1.Location = new Point(130, 25);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 0;
@@ -80,7 +90,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(583, 35);
+            button2.Location = new Point(19, 25);
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 1;
@@ -90,7 +100,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(583, 70);
+            button3.Location = new Point(19, 60);
             button3.Name = "button3";
             button3.Size = new Size(94, 29);
             button3.TabIndex = 2;
@@ -100,7 +110,7 @@
             // 
             // button5
             // 
-            button5.Location = new Point(694, 70);
+            button5.Location = new Point(130, 60);
             button5.Name = "button5";
             button5.Size = new Size(94, 29);
             button5.TabIndex = 4;
@@ -110,7 +120,7 @@
             // 
             // button6
             // 
-            button6.Location = new Point(694, 105);
+            button6.Location = new Point(130, 95);
             button6.Name = "button6";
             button6.Size = new Size(94, 29);
             button6.TabIndex = 5;
@@ -121,7 +131,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(606, 12);
+            label1.Location = new Point(42, 2);
             label1.Name = "label1";
             label1.Size = new Size(59, 20);
             label1.TabIndex = 6;
@@ -130,7 +140,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(715, 12);
+            label2.Location = new Point(151, 2);
             label2.Name = "label2";
             label2.Size = new Size(43, 20);
             label2.TabIndex = 7;
@@ -138,21 +148,21 @@
             // 
             // ValueA
             // 
-            ValueA.Location = new Point(663, 140);
+            ValueA.Location = new Point(99, 130);
             ValueA.Name = "ValueA";
             ValueA.Size = new Size(125, 27);
             ValueA.TabIndex = 8;
             // 
             // ValueB
             // 
-            ValueB.Location = new Point(663, 173);
+            ValueB.Location = new Point(99, 163);
             ValueB.Name = "ValueB";
             ValueB.Size = new Size(125, 27);
             ValueB.TabIndex = 9;
             // 
             // ValueC
             // 
-            ValueC.Location = new Point(663, 206);
+            ValueC.Location = new Point(99, 196);
             ValueC.Name = "ValueC";
             ValueC.Size = new Size(125, 27);
             ValueC.TabIndex = 10;
@@ -160,7 +170,7 @@
             // LabelA
             // 
             LabelA.AutoSize = true;
-            LabelA.Location = new Point(573, 143);
+            LabelA.Location = new Point(9, 133);
             LabelA.Name = "LabelA";
             LabelA.Size = new Size(59, 20);
             LabelA.TabIndex = 11;
@@ -169,7 +179,7 @@
             // LabelB
             // 
             LabelB.AutoSize = true;
-            LabelB.Location = new Point(574, 176);
+            LabelB.Location = new Point(10, 166);
             LabelB.Name = "LabelB";
             LabelB.Size = new Size(58, 20);
             LabelB.TabIndex = 12;
@@ -178,7 +188,7 @@
             // LabelC
             // 
             LabelC.AutoSize = true;
-            LabelC.Location = new Point(574, 209);
+            LabelC.Location = new Point(10, 199);
             LabelC.Name = "LabelC";
             LabelC.Size = new Size(58, 20);
             LabelC.TabIndex = 13;
@@ -186,7 +196,7 @@
             // 
             // button7
             // 
-            button7.Location = new Point(675, 239);
+            button7.Location = new Point(111, 229);
             button7.Name = "button7";
             button7.Size = new Size(94, 29);
             button7.TabIndex = 14;
@@ -194,31 +204,10 @@
             button7.UseVisualStyleBackColor = true;
             button7.Click += button7_Click;
             // 
-            // AngleA
-            // 
-            AngleA.Location = new Point(663, 286);
-            AngleA.Name = "AngleA";
-            AngleA.Size = new Size(125, 27);
-            AngleA.TabIndex = 15;
-            // 
-            // AngleB
-            // 
-            AngleB.Location = new Point(663, 319);
-            AngleB.Name = "AngleB";
-            AngleB.Size = new Size(125, 27);
-            AngleB.TabIndex = 16;
-            // 
-            // AngleC
-            // 
-            AngleC.Location = new Point(663, 352);
-            AngleC.Name = "AngleC";
-            AngleC.Size = new Size(125, 27);
-            AngleC.TabIndex = 17;
-            // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(597, 289);
+            label6.Location = new Point(205, 287);
             label6.Name = "label6";
             label6.Size = new Size(60, 20);
             label6.TabIndex = 18;
@@ -227,7 +216,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(596, 325);
+            label7.Location = new Point(204, 316);
             label7.Name = "label7";
             label7.Size = new Size(61, 20);
             label7.TabIndex = 19;
@@ -236,37 +225,16 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(596, 355);
+            label8.Location = new Point(204, 346);
             label8.Name = "label8";
             label8.Size = new Size(59, 20);
             label8.TabIndex = 20;
             label8.Text = "Angle c";
             // 
-            // SideA
-            // 
-            SideA.Location = new Point(466, 289);
-            SideA.Name = "SideA";
-            SideA.Size = new Size(125, 27);
-            SideA.TabIndex = 21;
-            // 
-            // SideB
-            // 
-            SideB.Location = new Point(466, 322);
-            SideB.Name = "SideB";
-            SideB.Size = new Size(125, 27);
-            SideB.TabIndex = 22;
-            // 
-            // SideC
-            // 
-            SideC.Location = new Point(466, 355);
-            SideC.Name = "SideC";
-            SideC.Size = new Size(125, 27);
-            SideC.TabIndex = 23;
-            // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(401, 296);
+            label9.Location = new Point(9, 287);
             label9.Name = "label9";
             label9.Size = new Size(52, 20);
             label9.TabIndex = 24;
@@ -275,7 +243,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(401, 325);
+            label10.Location = new Point(9, 316);
             label10.Name = "label10";
             label10.Size = new Size(51, 20);
             label10.TabIndex = 25;
@@ -284,7 +252,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(401, 355);
+            label11.Location = new Point(9, 346);
             label11.Name = "label11";
             label11.Size = new Size(51, 20);
             label11.TabIndex = 26;
@@ -293,7 +261,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(597, 109);
+            label12.Location = new Point(33, 99);
             label12.Name = "label12";
             label12.Size = new Size(85, 20);
             label12.TabIndex = 27;
@@ -302,7 +270,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(456, 130);
+            label3.Location = new Point(233, 137);
             label3.Name = "label3";
             label3.Size = new Size(111, 20);
             label3.TabIndex = 28;
@@ -311,7 +279,7 @@
             // Unit
             // 
             Unit.AutoSize = true;
-            Unit.Location = new Point(482, 155);
+            Unit.Location = new Point(259, 162);
             Unit.Name = "Unit";
             Unit.Size = new Size(64, 20);
             Unit.TabIndex = 29;
@@ -319,7 +287,7 @@
             // 
             // degrees
             // 
-            degrees.Location = new Point(466, 178);
+            degrees.Location = new Point(243, 185);
             degrees.Name = "degrees";
             degrees.Size = new Size(94, 29);
             degrees.TabIndex = 30;
@@ -329,7 +297,7 @@
             // 
             // radians
             // 
-            radians.Location = new Point(466, 213);
+            radians.Location = new Point(243, 220);
             radians.Name = "radians";
             radians.Size = new Size(94, 29);
             radians.TabIndex = 31;
@@ -337,17 +305,10 @@
             radians.UseVisualStyleBackColor = true;
             radians.Click += radians_Click;
             // 
-            // AngleB2
-            // 
-            AngleB2.Location = new Point(663, 382);
-            AngleB2.Name = "AngleB2";
-            AngleB2.Size = new Size(125, 27);
-            AngleB2.TabIndex = 32;
-            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(588, 389);
+            label4.Location = new Point(184, 391);
             label4.Name = "label4";
             label4.Size = new Size(69, 20);
             label4.TabIndex = 33;
@@ -356,7 +317,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(401, 421);
+            label5.Location = new Point(19, 421);
             label5.Name = "label5";
             label5.Size = new Size(59, 20);
             label5.TabIndex = 34;
@@ -365,47 +326,218 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(588, 421);
+            label13.Location = new Point(186, 421);
             label13.Name = "label13";
             label13.Size = new Size(67, 20);
             label13.TabIndex = 35;
             label13.Text = "Angle c2";
             // 
-            // SideC2
-            // 
-            SideC2.Location = new Point(457, 418);
-            SideC2.Name = "SideC2";
-            SideC2.Size = new Size(125, 27);
-            SideC2.TabIndex = 36;
-            // 
-            // AngleC2
-            // 
-            AngleC2.Location = new Point(663, 418);
-            AngleC2.Name = "AngleC2";
-            AngleC2.Size = new Size(125, 27);
-            AngleC2.TabIndex = 37;
-            // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(364, 389);
+            label14.Location = new Point(350, 406);
             label14.Name = "label14";
             label14.Size = new Size(218, 20);
             label14.TabIndex = 38;
             label14.Text = "Only valid for SSA two triangles";
             // 
+            // LabelSideA
+            // 
+            LabelSideA.AutoSize = true;
+            LabelSideA.Location = new Point(90, 287);
+            LabelSideA.Name = "LabelSideA";
+            LabelSideA.Size = new Size(68, 20);
+            LabelSideA.TabIndex = 39;
+            LabelSideA.Text = "No value";
+            // 
+            // LabelSideB
+            // 
+            LabelSideB.AutoSize = true;
+            LabelSideB.Location = new Point(90, 316);
+            LabelSideB.Name = "LabelSideB";
+            LabelSideB.Size = new Size(68, 20);
+            LabelSideB.TabIndex = 40;
+            LabelSideB.Text = "No value";
+            // 
+            // LabelSideC
+            // 
+            LabelSideC.AutoSize = true;
+            LabelSideC.Location = new Point(90, 346);
+            LabelSideC.Name = "LabelSideC";
+            LabelSideC.Size = new Size(68, 20);
+            LabelSideC.TabIndex = 41;
+            LabelSideC.Text = "No value";
+            // 
+            // LabelAngleA
+            // 
+            LabelAngleA.AutoSize = true;
+            LabelAngleA.Location = new Point(283, 287);
+            LabelAngleA.Name = "LabelAngleA";
+            LabelAngleA.Size = new Size(68, 20);
+            LabelAngleA.TabIndex = 42;
+            LabelAngleA.Text = "No value";
+            // 
+            // LabelAngleB
+            // 
+            LabelAngleB.AutoSize = true;
+            LabelAngleB.Location = new Point(283, 316);
+            LabelAngleB.Name = "LabelAngleB";
+            LabelAngleB.Size = new Size(68, 20);
+            LabelAngleB.TabIndex = 43;
+            LabelAngleB.Text = "No value";
+            // 
+            // LabelAngleC
+            // 
+            LabelAngleC.AutoSize = true;
+            LabelAngleC.Location = new Point(283, 346);
+            LabelAngleC.Name = "LabelAngleC";
+            LabelAngleC.Size = new Size(68, 20);
+            LabelAngleC.TabIndex = 44;
+            LabelAngleC.Text = "No value";
+            // 
+            // LabelAngleB2
+            // 
+            LabelAngleB2.AutoSize = true;
+            LabelAngleB2.Location = new Point(269, 391);
+            LabelAngleB2.Name = "LabelAngleB2";
+            LabelAngleB2.Size = new Size(68, 20);
+            LabelAngleB2.TabIndex = 45;
+            LabelAngleB2.Text = "No value";
+            // 
+            // LabelSideC2
+            // 
+            LabelSideC2.AutoSize = true;
+            LabelSideC2.Location = new Point(99, 421);
+            LabelSideC2.Name = "LabelSideC2";
+            LabelSideC2.Size = new Size(68, 20);
+            LabelSideC2.TabIndex = 46;
+            LabelSideC2.Text = "No value";
+            // 
+            // LabelAngleC2
+            // 
+            LabelAngleC2.AutoSize = true;
+            LabelAngleC2.Location = new Point(269, 421);
+            LabelAngleC2.Name = "LabelAngleC2";
+            LabelAngleC2.Size = new Size(68, 20);
+            LabelAngleC2.TabIndex = 47;
+            LabelAngleC2.Text = "No value";
+            // 
+            // Information
+            // 
+            Information.AutoSize = true;
+            Information.Location = new Point(378, 9);
+            Information.Name = "Information";
+            Information.Size = new Size(90, 20);
+            Information.TabIndex = 48;
+            Information.Text = "Information:";
+            // 
+            // welcome
+            // 
+            welcome.AutoSize = true;
+            welcome.Location = new Point(308, 34);
+            welcome.Name = "welcome";
+            welcome.Size = new Size(220, 20);
+            welcome.TabIndex = 49;
+            welcome.Text = "Welcome to the Triangle Solver!";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(243, 64);
+            label15.Name = "label15";
+            label15.Size = new Size(415, 20);
+            label15.TabIndex = 50;
+            label15.Text = "To begin, select the pattern of triangle you will be solving for.";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(308, 95);
+            label16.Name = "label16";
+            label16.Size = new Size(267, 20);
+            label16.TabIndex = 51;
+            label16.Text = "Next, enter the values in the text boxes.";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(350, 162);
+            label17.Name = "label17";
+            label17.Size = new Size(258, 20);
+            label17.TabIndex = 52;
+            label17.Text = "If needed, select the \"Radians\" button";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(343, 189);
+            label18.Name = "label18";
+            label18.Size = new Size(302, 20);
+            label18.TabIndex = 53;
+            label18.Text = "to switch your units from degrees to radians.";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(366, 220);
+            label19.Name = "label19";
+            label19.Size = new Size(242, 20);
+            label19.TabIndex = 54;
+            label19.Text = "Both input and output are effected.";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(644, 86);
+            label20.Name = "label20";
+            label20.Size = new Size(0, 20);
+            label20.TabIndex = 55;
+            // 
+            // FactTxt
+            // 
+            FactTxt.AutoSize = true;
+            FactTxt.Location = new Point(386, 267);
+            FactTxt.Name = "FactTxt";
+            FactTxt.Size = new Size(381, 20);
+            FactTxt.TabIndex = 56;
+            FactTxt.Text = "Here a fun fact will be presented about the triangle type";
+            // 
+            // FactTxt2
+            // 
+            FactTxt2.AutoSize = true;
+            FactTxt2.Location = new Point(386, 293);
+            FactTxt2.Name = "FactTxt2";
+            FactTxt2.Size = new Size(0, 20);
+            FactTxt2.TabIndex = 57;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(887, 450);
+            Controls.Add(FactTxt2);
+            Controls.Add(FactTxt);
+            Controls.Add(label20);
+            Controls.Add(label19);
+            Controls.Add(label18);
+            Controls.Add(label17);
+            Controls.Add(label16);
+            Controls.Add(label15);
+            Controls.Add(welcome);
+            Controls.Add(Information);
+            Controls.Add(LabelAngleC2);
+            Controls.Add(LabelSideC2);
+            Controls.Add(LabelAngleB2);
+            Controls.Add(LabelAngleC);
+            Controls.Add(LabelAngleB);
+            Controls.Add(LabelAngleA);
+            Controls.Add(LabelSideC);
+            Controls.Add(LabelSideB);
+            Controls.Add(LabelSideA);
             Controls.Add(label14);
-            Controls.Add(AngleC2);
-            Controls.Add(SideC2);
             Controls.Add(label13);
             Controls.Add(label5);
             Controls.Add(label4);
-            Controls.Add(AngleB2);
             Controls.Add(radians);
             Controls.Add(degrees);
             Controls.Add(Unit);
@@ -414,15 +546,9 @@
             Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(label9);
-            Controls.Add(SideC);
-            Controls.Add(SideB);
-            Controls.Add(SideA);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
-            Controls.Add(AngleC);
-            Controls.Add(AngleB);
-            Controls.Add(AngleA);
             Controls.Add(button7);
             Controls.Add(LabelC);
             Controls.Add(LabelB);
@@ -459,15 +585,9 @@
         private Label LabelB;
         private Label LabelC;
         private Button button7;
-        private TextBox AngleA;
-        private TextBox AngleB;
-        private TextBox AngleC;
         private Label label6;
         private Label label7;
         private Label label8;
-        private TextBox SideA;
-        private TextBox SideB;
-        private TextBox SideC;
         private Label label9;
         private Label label10;
         private Label label11;
@@ -476,12 +596,28 @@
         private Label Unit;
         private Button degrees;
         private Button radians;
-        private TextBox AngleB2;
         private Label label4;
         private Label label5;
         private Label label13;
-        private TextBox SideC2;
-        private TextBox AngleC2;
         private Label label14;
+        private Label LabelSideA;
+        private Label LabelSideB;
+        private Label LabelSideC;
+        private Label LabelAngleA;
+        private Label LabelAngleB;
+        private Label LabelAngleC;
+        private Label LabelAngleB2;
+        private Label LabelSideC2;
+        private Label LabelAngleC2;
+        private Label Information;
+        private Label welcome;
+        private Label label15;
+        private Label label16;
+        private Label label17;
+        private Label label18;
+        private Label label19;
+        private Label label20;
+        private Label FactTxt;
+        private Label FactTxt2;
     }
 }

@@ -1,53 +1,29 @@
 ﻿namespace Final_Project
 {
-    internal class SSATriangle : GeneralTriangle
+    // SSA triangles are annoying to work with due to their more complicated math. However, you solve them using the law of sines.
+    // This means I can create a list of them instead of having to deal with making it massively different than the other triangles.
+    internal class SSATriangle
     {
         public List<GeneralTriangle> Triangles { get; set; }
-        public SSATriangle(double A, double B, double C, Angle a, Angle b, Angle c) : base(A, B, C, a, b, c)
+        public SSATriangle(double A, double B, double C, Angle a, Angle b, Angle c)
         {
             Triangles = new List<GeneralTriangle>();
+            SinesTriangle triangle = new SinesTriangle(A, B, C, a, b, c, true, true, false);
+            Triangles.Add(triangle);
+            SolveSecondTriangle();
         }
-        public override void SolveTriangle()
-        {
-            if (SideB < SideA)
-            {
 
-                Triangles.Add(new SinesTriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC, true, true));
-            }
-            else if (SideB == SideA)
+        private void SolveSecondTriangle()
+        {
+            // This function will determine if the SSA triangle could correspond to multiple values. 
+            if ((Triangles[0].SideB > Triangles[0].SideA) && (Triangles[0].AngleA.Degrees < 90))
             {
-                if (AngleA.Degrees < 90)
-                    Triangles.Add(new SinesTriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC, true, true));
-                else
-                    IsReal = false;
-            }
-            else if (SideB > SideA)
-            {
-                if (AngleA.Degrees > 90)
-                    IsReal = false;
-                else
+                double h = Triangles[0].SideB * Math.Sin(Triangles[0].AngleA.Radians);
+                double SinB = (Triangles[0].SideB * Math.Sin(Triangles[0].AngleA.Radians) / Triangles[0].SideA);
+                if ((Triangles[0].SideA > h) || ((SinB < 1) && (SinB > 0)))
                 {
-                    double h = SideB * Math.Sin(AngleA.Radians);
-                    if (SideA > h)
-                    {
-                        Triangles.Add(new SinesTriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC, true, true));
-                        if (Triangles[0].IsReal)
-                        {
-                            Angle AngleB2 = new Angle((180 - Triangles[0].AngleB.Degrees), true);
-                            Triangles.Add(new SinesTriangle(SideA, SideB, SideC, AngleA, AngleB2, AngleC, true, true));
-                        }
-                        else
-                        {
-                            Angle AngleB2 = new Angle((180 - (SideB * Math.Sin(AngleA.Radians))), false);
-                            Triangles.Add(new SinesTriangle(SideA, SideB, SideC, AngleA, AngleB2, AngleC, true, true));
-                        }
-                    }
-                    else if (SideA == h)
-                    {
-                        Triangles.Add(new SinesTriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC, true, true));
-                    }
-                    else if (SideA < h)
-                        IsReal = false;
+                    Angle AngleB2 = new Angle((180 - Triangles[0].AngleB.Degrees), true);
+                    Triangles.Add(new SinesTriangle(Triangles[0].SideA, Triangles[0].SideB, 0, Triangles[0].AngleA, AngleB2, Triangles[0].AngleC, true, true, true));
                 }
             }
         }

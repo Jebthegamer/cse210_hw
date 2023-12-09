@@ -2,6 +2,7 @@
 {
     public abstract class GeneralTriangle
     {
+        // All triangles need three sides and two angles.
         public double SideA { get; set; }
         public double SideB { get; set; }
         public double SideC { get; set; }
@@ -15,10 +16,13 @@
             SideA = A; SideB = B; SideC = C; AngleA = a; AngleB = b; AngleC = c;
             IsReal = true;
         }
+        // All of the triangles need to be solved.
         public abstract void SolveTriangle();
 
         protected void DetermineReality()
         {
+            // This is a function to determine if the resulting triangle is possible.
+            // If it isn't then set the output to be false.
             if (SideA == SideB + SideC) IsReal = false;
             if (SideB == SideA + SideC) IsReal = false;
             if (SideC == SideA + SideB) IsReal = false;

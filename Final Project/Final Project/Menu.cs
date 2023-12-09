@@ -5,7 +5,7 @@
         public List<Selection> Selections { get; set; }
         public Menu()
         {
-            Selection SSS = new Selection("SSS", false);
+            Selection SSS = new Selection("SSS", true);
             Selection SSA = new Selection("SSA", false);
             Selection SAS = new Selection("SAS", false);
             Selection ASA = new Selection("ASA", false);
@@ -29,8 +29,8 @@
                     selection.Status = true;
             }
         }
-        // Create triangles based on the inputs.
-        public GeneralTriangle CreateTriangles(double SideA, Angle AngleB, double SideC, Angle AngleA, double SideB, Angle AngleC)
+        // Create triangles based on the inputs. SSA triangles are not included as they don't inherit from GeneralTriangle
+        public GeneralTriangle CreateTriangle(double SideA, double SideB, double SideC, Angle AngleA, Angle AngleB, Angle AngleC)
         {
             foreach (Selection selection in Selections)
             {
@@ -41,15 +41,13 @@
                     else if (selection.Name == "SAS")
                         return new CosinesTriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC, false);
                     else if (selection.Name == "ASA")
-                        return new SinesTriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC, false, false);
+                        return new SinesTriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC, false, false, false);
                     else if (selection.Name == "AAS")
-                        return new SinesTriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC, true, false);
-                    else if (selection.Name == "SSA")
-                        return new SSATriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC);
+                        return new SinesTriangle(SideA, SideB, SideC, AngleA, AngleB, AngleC, true, false, false);
                 }
             }
             Angle angle = new Angle(0, true);
-            return new SinesTriangle(0, 0, 0, angle, angle, angle, true, true);
+            return new SinesTriangle(0, 0, 0, angle, angle, angle, true, true, false);
         }
     }
 }
