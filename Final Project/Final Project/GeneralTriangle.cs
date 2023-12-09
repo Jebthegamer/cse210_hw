@@ -3,13 +3,13 @@
     public abstract class GeneralTriangle
     {
         // All triangles need three sides and two angles.
-        public double SideA { get; set; }
-        public double SideB { get; set; }
+        protected double SideA { get; set; }
+        protected double SideB { get; set; }
         public double SideC { get; set; }
-        public Angle AngleA { get; set; }
-        public Angle AngleB { get; set; }
-        public Angle AngleC { get; set; }
-        public bool IsReal { get; set; }
+        protected Angle AngleA { get; set; }
+        protected Angle AngleB { get; set; }
+        protected Angle AngleC { get; set; }
+        protected bool IsReal { get; set; }
 
         public GeneralTriangle(double A, double B, double C, Angle a, Angle b, Angle c)
         {
@@ -28,5 +28,12 @@
             if (SideC == SideA + SideB) IsReal = false;
             if (AngleA.Degrees + AngleB.Degrees + AngleC.Degrees > 180) IsReal = false;
         }
+        public double GetSideA() { return SideA;  }
+        public double GetSideB() { return SideB;  }
+        public double GetSideC() {  return SideC; }
+        public Angle GetAngleA() { return AngleA; }
+        public Angle GetAngleB() { return AngleB; }
+        public Angle GetAngleC() { return AngleC; }
+        public bool GetIsReal() { return IsReal; }
     }
 }

@@ -16,14 +16,14 @@
         private void SolveSecondTriangle()
         {
             // This function will determine if the SSA triangle could correspond to multiple values. 
-            if ((Triangles[0].SideB > Triangles[0].SideA) && (Triangles[0].AngleA.Degrees < 90))
+            if ((Triangles[0].GetSideB() > Triangles[0].GetSideA()) && (Triangles[0].GetAngleA().Degrees < 90))
             {
-                double h = Triangles[0].SideB * Math.Sin(Triangles[0].AngleA.Radians);
-                double SinB = (Triangles[0].SideB * Math.Sin(Triangles[0].AngleA.Radians) / Triangles[0].SideA);
-                if ((Triangles[0].SideA > h) || ((SinB < 1) && (SinB > 0)))
+                double h = Triangles[0].GetSideB() * Math.Sin(Triangles[0].GetAngleA().Radians);
+                double SinB = (Triangles[0].GetSideB() * Math.Sin(Triangles[0].GetAngleA().Radians) / Triangles[0].GetSideA());
+                if ((Triangles[0].GetSideA() > h) || ((SinB < 1) && (SinB > 0)))
                 {
-                    Angle AngleB2 = new Angle((180 - Triangles[0].AngleB.Degrees), true);
-                    Triangles.Add(new SinesTriangle(Triangles[0].SideA, Triangles[0].SideB, 0, Triangles[0].AngleA, AngleB2, Triangles[0].AngleC, true, true, true));
+                    Angle AngleB2 = new Angle((180 - Triangles[0].GetAngleB().Degrees), true);
+                    Triangles.Add(new SinesTriangle(Triangles[0].GetSideA(), Triangles[0].GetSideB(), 0, Triangles[0].GetAngleA(), AngleB2, Triangles[0].GetAngleC(), true, true, true));
                 }
             }
         }
